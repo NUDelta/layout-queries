@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default TechnologySelect = React.createClass({
+export default class TechnologySelect extends React.Component {
 
 
 
-	propTypes: {
-		codeIsUploaded: React.PropTypes.bool.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -32,4 +32,10 @@ export default TechnologySelect = React.createClass({
 
 
 
-});
+}
+
+
+
+TechnologySelect.propTypes = {
+	codeIsUploaded: React.PropTypes.bool.isRequired
+};

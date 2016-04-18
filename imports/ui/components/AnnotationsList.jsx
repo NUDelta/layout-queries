@@ -1,34 +1,26 @@
 import React from 'react';
 import Annotation from './Annotation.jsx';
 
-export default AnnotationsList = React.createClass({
+export default class AnnotationsList extends React.Component {
 
 
 
-	propTypes: {
-		results:         React.PropTypes.array.isRequired,
-		activeResultId: React.PropTypes.number.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
 	render() {
-		let result;
-		for (let i=0; i < this.props.results.length; i++) {
-			if (this.props.results[i]._id === this.props.activeResultId) {
-				result = this.props.results[i];
-			}
-		}
-
-
 		return (
 			<ul className="annotations-list">
 				{
-					result.annotations.map( (a, i) => {
+					this.props.annotations.map( (a) => {
 						return (
 							<Annotation
-								key={i}
-								lineText={a.lineText}
+								key={a._id}
+								lineStart={a.lineStart}
+								lineEnd={a.lineEnd}
 								content={a.content} />
 						);
 					})
@@ -39,4 +31,10 @@ export default AnnotationsList = React.createClass({
 
 
 
-});
+}
+
+
+
+AnnotationsList.PropTypes = {
+	annotations: React.PropTypes.array.isRequired
+};

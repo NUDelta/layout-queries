@@ -2,37 +2,35 @@ import React from 'react';
 import CodeEditor from './CodeEditor.jsx';
 import CodeInfoRibbon from './CodeInfoRibbon.jsx';
 
-export default ProCode = React.createClass({
+export default class ProCode extends React.Component {
 
 
 
-	propTypes: {
-		results:        React.PropTypes.array.isRequired,
-		activeResultId: React.PropTypes.number.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
 	render() {
-		let result;
-		for (let i=0; i < this.props.results.length; i++) {
-			if (this.props.results[i]._id === this.props.activeResultId) {
-				result = this.props.results[i];
-				break;
-			}
-		}
-
 		return (
 			<div className="pane-content">
 				<CodeEditor
-					code={result.code} />
+					code={this.props.proExample.code} />
 				<CodeInfoRibbon
-					name={result.url}
-					confidence={result.confidence}/>
+					source={this.props.proExample.source}
+					confidence={0.98}/>
 			</div>
 		);
 	}
 
 
 
-});
+}
+
+
+
+ProCode.propTypes = {
+	connected:  React.PropTypes.bool.isRequired,
+	proExample: React.PropTypes.object.isRequired
+};

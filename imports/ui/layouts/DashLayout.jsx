@@ -4,18 +4,13 @@ import UserPane from '../components/UserPane.jsx';
 import ProPane from '../components/ProPane.jsx';
 import Panel from '../components/Panel.jsx';
 
-export default DashLayout = React.createClass({
+export default class DashLayout extends React.Component {
 
 
 
-	propTypes: {
-		fileName:       React.PropTypes.string, // null if none uploaded
-		code:           React.PropTypes.string, // null if none uploaded
-		results:        React.PropTypes.array.isRequired,
-		activeResultId: React.PropTypes.number, // null if none
-		readFile:       React.PropTypes.func.isRequired,
-		activateResult: React.PropTypes.func.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -24,26 +19,32 @@ export default DashLayout = React.createClass({
 			<div className="layout">
 				<Header
 					codeIsUploaded={this.props.code ? true : false}
-					results={this.props.results}
-					activeResultId={this.props.activeResultId}
-					activateResult={this.props.activateResult} />
+					proExampleId={this.props.proExampleId} />
 				<main>
 					<UserPane
 						fileName={this.props.fileName}
 						code={this.props.code}
 						readFile={this.props.readFile} />
 					<ProPane
-						code={this.props.code}
-						results={this.props.results}
-						activeResultId={this.props.activeResultId} />
+						codeIsUploaded={this.props.code ? true : false}
+						proExampleId={this.props.proExampleId} />
 				</main>
 				<Panel
-					results={this.props.results}
-					activeResultId={this.props.activeResultId} />
+					codeIsUploaded={this.props.code ? true : false }
+					proExampleId={this.props.proExampleId} />
 			</div>
 		);
 	}
 
 
 
-});
+}
+
+
+
+DashLayout.PropTypes = {
+	fileName:     React.PropTypes.string, // null if none uploaded
+	code:         React.PropTypes.string, // null if none uploaded
+	readFile:     React.PropTypes.func.isRequired,
+	proExampleId: React.PropTypes.string // null if pro pane not active
+};

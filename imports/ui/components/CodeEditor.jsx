@@ -2,17 +2,17 @@ import React from 'react';
 import Codemirror from 'react-codemirror';
 import 'codemirror/mode/javascript/javascript.js';
 
-export default CodeEditor = React.createClass({
+export default class CodeEditor extends React.Component {
 
 
 
-	propTypes: {
-		code: React.PropTypes.string.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
-    render: function() {
+    render() {
         var options = {
             lineNumbers: true
         };
@@ -21,4 +21,10 @@ export default CodeEditor = React.createClass({
 
 
 
-});
+}
+
+
+
+CodeEditor.propTypes = {
+	code: React.PropTypes.string.isRequired
+};

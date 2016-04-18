@@ -1,14 +1,13 @@
 import React from 'react';
-import AnnotationsList from './AnnotationsList';
+import AnnotationsListContainer from './AnnotationsListContainer.jsx';
 
-export default Panel = React.createClass({
+export default class Panel extends React.Component {
 
 
 
-	propTypes: {
-		results:        React.PropTypes.array.isRequired,
-		activeResultId: React.PropTypes.number // null if none
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -18,10 +17,9 @@ export default Panel = React.createClass({
 
 				<h3>Annotations</h3>
 
-				{ this.props.activeResultId !== null ?
-					<AnnotationsList
-						results={this.props.results}
-						activeResultId={this.props.activeResultId} />
+				{ this.props.codeIsUploaded ?
+					<AnnotationsListContainer
+						proExampleId={this.props.proExampleId} />
 					: ""
 				}
 				
@@ -31,4 +29,11 @@ export default Panel = React.createClass({
 
 
 
-});
+};
+
+
+
+Panel.PropTypes = {
+	codeIsUploaded: React.PropTypes.bool.isRequired,
+	proExampleId:   React.PropTypes.string // null if none uplaoded yet
+};

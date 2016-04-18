@@ -2,14 +2,13 @@ import React from 'react';
 import CodeEditor from './CodeEditor.jsx';
 import CodeInfoRibbon from './CodeInfoRibbon.jsx';
 
-export default UserPane = React.createClass({
+export default class UserPane extends React.Component {
 
 
 
-	propTypes: {
-		fileName: React.PropTypes.string.isRequired,
-		code: 	  React.PropTypes.string.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -19,11 +18,19 @@ export default UserPane = React.createClass({
 				<CodeEditor
 					code={this.props.code} />
 				<CodeInfoRibbon
-					name={this.props.fileName} />
+					source={this.props.fileName} />
 			</div>
 		);
 	}
 
 
 
-});
+}
+
+
+
+
+UserPane.propTypes = {
+	fileName: React.PropTypes.string.isRequired,
+	code: 	  React.PropTypes.string.isRequired
+};

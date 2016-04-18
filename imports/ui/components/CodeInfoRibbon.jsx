@@ -1,13 +1,12 @@
 import React from 'react';
 
-export default CodeInfoRibbon = React.createClass({
+export default class CodeInfoRibbon extends React.Component {
 
 
 
-	propTypes: {
-		name:       React.PropTypes.string.isRequired,
-		confidence: React.PropTypes.number // only give for pro code
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -21,7 +20,7 @@ export default CodeInfoRibbon = React.createClass({
 						: ""
 					}
 
-					<span>{this.props.name}</span>
+					<span>{this.props.source}</span>
 				</div>
 			</div>
 		);
@@ -29,4 +28,11 @@ export default CodeInfoRibbon = React.createClass({
 
 
 
-});
+}
+
+
+
+CodeInfoRibbon.propTypes = {
+	source:     React.PropTypes.string.isRequired,
+	confidence: React.PropTypes.number // only give for pro code
+}

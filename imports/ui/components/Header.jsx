@@ -1,18 +1,15 @@
 import React from 'react';
 import ComponentSelect from './ComponentSelect.jsx';
 import TechnologySelect from './TechnologySelect.jsx';
-import ResultsSlider from './ResultsSlider.jsx';
+import ProExamplesSliderContainer from './ProExamplesSliderContainer';
 
-export default Header = React.createClass({
+export default class Header extends React.Component {
 
 
 
-	propTypes: {
-		codeIsUploaded: React.PropTypes.bool.isRequired,
-		results:        React.PropTypes.array.isRequired,
-		activeResultId: React.PropTypes.number, // null if none
-		activateResult: React.PropTypes.func.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -23,15 +20,20 @@ export default Header = React.createClass({
 					codeIsUploaded={this.props.codeIsUploaded} />
 				<TechnologySelect
 					codeIsUploaded={this.props.codeIsUploaded} />
-				<ResultsSlider
+				<ProExamplesSliderContainer
 					codeIsUploaded={this.props.codeIsUploaded}
-					results={this.props.results}
-					activeResultId={this.props.activeResultId}
-					activateResult={this.props.activateResult} />
+					proExampleId={this.props.proExampleId} />
 			</section>
 		);
 	}
 
 
 
-});
+}
+
+
+
+Header.propTypes = {
+	codeIsUploaded: React.PropTypes.bool.isRequired,
+	proExampleId: React.PropTypes.string // null if pro pane not active
+};

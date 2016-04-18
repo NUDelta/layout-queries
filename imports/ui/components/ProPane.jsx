@@ -1,25 +1,22 @@
 import React from 'react';
-import ProCode from './ProCode.jsx';
+import ProCodeContainer from './ProCodeContainer.jsx';
 
-export default ProPane = React.createClass({
+export default class ProPane extends React.Component {
 
 
 
-	propTypes: {
-		code:           React.PropTypes.string, // null if none uploaded
-		results:        React.PropTypes.array.isRequired,
-		activeResultId: React.PropTypes.number // null if none
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
 	render() {
 		return (
 			<section className="pro-pane pane">
-				{ this.props.code ?
-					<ProCode
-						results={this.props.results}
-						activeResultId={this.props.activeResultId} />
+				{ this.props.codeIsUploaded ?
+					<ProCodeContainer
+						proExampleId={this.props.proExampleId} />
 					:
 					""			
 				}
@@ -29,4 +26,11 @@ export default ProPane = React.createClass({
 
 
 
-});
+}
+
+
+
+ProPane.propTypes = {
+	codeIsUploaded: React.PropTypes.bool.isRequired,
+	proExampleId:   React.PropTypes.string // null if none uploaded yet
+};

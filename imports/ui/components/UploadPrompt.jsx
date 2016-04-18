@@ -1,19 +1,20 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
-export default UploadPrompt = React.createClass({
+export default class UploadPrompt extends React.Component {
 
 
 
-	propTypes: {
-		readFile: React.PropTypes.func.isRequired
-	},
+	constructor(props) {
+		super(props);
+		this.onDrop = this.onDrop.bind(this);
+	}
 
 
 
-	onDrop: function (files) {
+	onDrop(files) {
       	this.props.readFile(files);
-    },
+    }
 
 
 
@@ -28,4 +29,10 @@ export default UploadPrompt = React.createClass({
 
 
 
-});
+}
+
+
+
+UploadPrompt.propTypes = {
+	readFile: React.PropTypes.func.isRequired
+};

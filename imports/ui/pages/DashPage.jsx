@@ -1,18 +1,31 @@
 import React from 'react';
 import DashLayoutContainer from '../layouts/DashLayoutContainer.jsx';
 
-export default DashPage = React.createClass({
+export default class DashPage extends React.Component {
+
+
+
+	constructor(props) {
+		super(props);
+	}
 
 
 
 	render() {
 		return (
 			<div className="page">
-				<DashLayoutContainer />
+				<DashLayoutContainer
+					proExampleId={this.props.params.proExampleId} />
 			</div>
 		);
 	}
 
 
 	
-});
+};
+
+
+
+DashPage.PropTypes = {
+	params: React.PropTypes.object.isRequired
+};

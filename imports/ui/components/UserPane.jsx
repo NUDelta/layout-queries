@@ -2,15 +2,13 @@ import React from 'react';
 import UserCode from './UserCode.jsx';
 import UploadPrompt from './UploadPrompt.jsx';
 
-export default UserPane = React.createClass({
+export default class UserPane extends React.Component {
 
 
 
-	propTypes: {
-		fileName: React.PropTypes.string, // null if none uploaded
-		code:     React.PropTypes.string, // null if none uploaded
-		readFile: React.PropTypes.func.isRequired
-	},
+	constructor(props) {
+		super(props);
+	}
 
 
 
@@ -31,4 +29,12 @@ export default UserPane = React.createClass({
 
 
 
-});
+}
+
+
+
+UserPane.propTypes = {
+	fileName: React.PropTypes.string, // null if none uploaded
+	code:     React.PropTypes.string, // null if none uploaded
+	readFile: React.PropTypes.func.isRequired
+};
