@@ -17,9 +17,9 @@ export default class ProCode extends React.Component {
 			<div className="pane-content">
 				<CodeEditor
 					code={this.props.proExample.code} />
-				<CodeInfoRibbon
+				{/*<CodeInfoRibbon
 					source={this.props.proExample.source}
-					confidence={0.98}/>
+					confidence={0.98}/>*/}
 			</div>
 		);
 	}

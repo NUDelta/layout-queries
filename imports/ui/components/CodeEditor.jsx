@@ -14,7 +14,8 @@ export default class CodeEditor extends React.Component {
 
     render() {
         var options = {
-            lineNumbers: true
+            lineNumbers: true,
+            theme: 'neo'
         };
         return <Codemirror value={this.props.code} options={options} />
     }

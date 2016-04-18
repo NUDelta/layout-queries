@@ -25,7 +25,7 @@ export default class DashLayoutContainer extends React.Component {
 
 		let self = this;
 		r.onload = (e) => {
-			console.log(JSON.stringify(e.target.result));
+			// console.log(JSON.stringify(e.target.result));
 			self.setState({
 				fileName: fileName,
 				code: e.target.result

@@ -17,8 +17,8 @@ export default class UserPane extends React.Component {
 			<div className="pane-content">
 				<CodeEditor
 					code={this.props.code} />
-				<CodeInfoRibbon
-					source={this.props.fileName} />
+				{/*<CodeInfoRibbon
+					source={this.props.fileName} />*/}
 			</div>
 		);
 	}
