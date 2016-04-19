@@ -201,6 +201,12 @@ div.page {
 								div.CodeMirror-linenumber {
 									color: #c8d2d7
 								}
+								div.Codemirror-line::selection {
+									background: #d7d4f0;
+								}
+								div.Codemirror-line::selection:window-inactive {
+									background: #d7d4f0;
+								}
 							}
 						}
 						div.info-ribbon {
@@ -284,7 +290,7 @@ div.page {
 					padding: 10px 10px;
 					font-weight: normal;
 					font-size: 0.8em;
-					color: #555;
+					color: #CFD6D9;
 				}
 				ul.annotations-list {
 					margin: 0;
@@ -298,19 +304,26 @@ div.page {
 						padding: 7px 10px;
 						border-bottom: 1px solid #ebeef0;
 
-						span.lines {
-							display: block;
-							margin-bottom: 6px;
-							font-size: 0.6em;
-							color: #999;
+						a {
+							text-decoration: none;
+
+							span.lines {
+								display: block;
+								margin-bottom: 6px;
+								font-size: 0.6em;
+								color: #999;
+							}
+							span.content {
+								display: block;
+								font-size: 0.7em;
+								color: #424249;
+							}
+							&:not(:last-child) {
+								margin-bottom: 15px;
+							}
 						}
-						span.content {
-							display: block;
-							font-size: 0.7em;
-							color: #424249;
-						}
-						&:not(:last-child) {
-							margin-bottom: 15px;
+						&.active {
+							background-color: #d7d4f0;
 						}
 					}
 				}

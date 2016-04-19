@@ -8,5 +8,6 @@ export const renderRoutes = () => (
 	<Router history={browserHistory}>
 		<Route path="/" component={DashPage} />
 		<Route path="/examples/:proExampleId" component={DashPage} />
+		<Route path="/examples/:proExampleId/annotations/:annotationId" component={DashPage} />
 	</Router>
 );

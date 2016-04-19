@@ -19,9 +19,12 @@ export default class AnnotationsList extends React.Component {
 						return (
 							<Annotation
 								key={a._id}
+								_id={a._id}
 								lineStart={a.lineStart}
 								lineEnd={a.lineEnd}
-								content={a.content} />
+								content={a.content}
+								active={a._id === this.props.annotationId}
+								proExampleId={a.proExampleId} />
 						);
 					})
 				}
@@ -36,5 +39,7 @@ export default class AnnotationsList extends React.Component {
 
 
 AnnotationsList.PropTypes = {
-	annotations: React.PropTypes.array.isRequired
+	connected:    React.PropTypes.bool.isRequired,
+	annotations:  React.PropTypes.array.isRequired,
+	annotationId: React.PropTypes.string // null if no annotation is active
 };

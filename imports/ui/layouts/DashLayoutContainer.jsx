@@ -18,7 +18,7 @@ export default class DashLayoutContainer extends React.Component {
 
 
 	readFile(files) {
-		const file = files[0];
+		const file = files[0],
 			  fileName = file.name;
 
 		const r = new FileReader();
@@ -43,7 +43,8 @@ export default class DashLayoutContainer extends React.Component {
 				fileName={this.state.fileName}
 				code={this.state.code}
 				readFile={this.readFile}
-				proExampleId={this.props.proExampleId} />
+				proExampleId={this.props.proExampleId}
+				annotationId={this.props.annotationId} />
 		);
 	}
 
@@ -54,5 +55,6 @@ export default class DashLayoutContainer extends React.Component {
 
 
 DashLayoutContainer.PropTypes = {
-	proExampleId: React.PropTypes.string // only if pro pane is active
+	proExampleId: React.PropTypes.string, // only if the pro pane is active
+	annotationId: React.PropTypes.string, // only if an annotation is active
 };

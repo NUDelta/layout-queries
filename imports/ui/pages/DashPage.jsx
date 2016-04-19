@@ -15,7 +15,8 @@ export default class DashPage extends React.Component {
 		return (
 			<div className="page">
 				<DashLayoutContainer
-					proExampleId={this.props.params.proExampleId} />
+					proExampleId={this.props.params.proExampleId}
+					annotationId={this.props.params.annotationId} />
 			</div>
 		);
 	}

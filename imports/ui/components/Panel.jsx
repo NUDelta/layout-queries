@@ -19,7 +19,8 @@ export default class Panel extends React.Component {
 
 				{ this.props.codeIsUploaded ?
 					<AnnotationsListContainer
-						proExampleId={this.props.proExampleId} />
+						proExampleId={this.props.proExampleId}
+						annotationId={this.props.annotationId} />
 					: ""
 				}
 				
@@ -35,5 +36,6 @@ export default class Panel extends React.Component {
 
 Panel.PropTypes = {
 	codeIsUploaded: React.PropTypes.bool.isRequired,
-	proExampleId:   React.PropTypes.string // null if none uplaoded yet
+	proExampleId:   React.PropTypes.string, // null if none uplaoded yet
+	annotationId:   React.PropTypes.string, // null if no annotation is active
 };

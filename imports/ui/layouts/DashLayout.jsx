@@ -27,11 +27,13 @@ export default class DashLayout extends React.Component {
 						readFile={this.props.readFile} />
 					<ProPane
 						codeIsUploaded={this.props.code ? true : false}
-						proExampleId={this.props.proExampleId} />
+						proExampleId={this.props.proExampleId}
+						annotationId={this.props.annotationId} />
 				</main>
 				<Panel
 					codeIsUploaded={this.props.code ? true : false }
-					proExampleId={this.props.proExampleId} />
+					proExampleId={this.props.proExampleId}
+					annotationId={this.props.annotationId} />
 			</div>
 		);
 	}
@@ -46,5 +48,6 @@ DashLayout.PropTypes = {
 	fileName:     React.PropTypes.string, // null if none uploaded
 	code:         React.PropTypes.string, // null if none uploaded
 	readFile:     React.PropTypes.func.isRequired,
-	proExampleId: React.PropTypes.string // null if pro pane not active
+	proExampleId: React.PropTypes.string, // null if pro pane not active
+	annotationId: React.PropTypes.string, // null if an annotation is not active
 };

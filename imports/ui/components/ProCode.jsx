@@ -15,8 +15,17 @@ export default class ProCode extends React.Component {
 	render() {
 		return (
 			<div className="pane-content">
-				<CodeEditor
-					code={this.props.proExample.code} />
+				{this.props.annotation
+					?
+					<CodeEditor
+						code={this.props.proExample.code}
+						highlightStart={this.props.annotation.lineStart}
+						highlightEnd={this.props.annotation.lineEnd} />
+					:
+					<CodeEditor
+						code={this.props.proExample.code} />
+
+				}
 				{/*<CodeInfoRibbon
 					source={this.props.proExample.source}
 					confidence={0.98}/>*/}
@@ -32,5 +41,6 @@ export default class ProCode extends React.Component {
 
 ProCode.propTypes = {
 	connected:  React.PropTypes.bool.isRequired,
-	proExample: React.PropTypes.object.isRequired
+	proExample: React.PropTypes.object.isRequired,
+	annotation: React.PropTypes.object // null if none active
 };
