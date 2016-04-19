@@ -28,9 +28,9 @@ export default class Annotation extends React.Component {
 			<li className={classes}>
 				<Link to={this.getUrl()}>
 					{ this.props.lineStart === this.props.lineEnd ?
-						<span className="lines">{"Line " + this.props.lineStart}</span>
+						<span className="lines">{this.props.lineStart}</span>
 						:
-						<span className="lines">{"Lines " + this.props.lineStart + " - " + this.props.lineEnd}</span>	
+						<span className="lines">{this.props.lineStart + " - " + this.props.lineEnd}</span>	
 					}
 					<span className="content">{this.props.content}</span>
 				</Link>

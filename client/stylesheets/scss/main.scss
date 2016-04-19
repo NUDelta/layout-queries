@@ -19,6 +19,14 @@
 
 
 
+/* CodeMirror */
+$selection-background: darken(#f5faff, 5%);
+.CodeMirror-focused .CodeMirror-selected { background: $selection-background; }
+.CodeMirror-selected { background: $selection-background; }
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: $selection-background; }
+.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: $selection-background; }
+
+
 
 div.page {
 	width: 100%;
@@ -176,7 +184,7 @@ div.page {
 		/* Main */
 			main {
 				float: left;
-				width: calc(100% - 200px);
+				width: calc(100% - 201px);
 				height: calc(100% - 70px);
 				overflow: auto;
 
@@ -200,12 +208,6 @@ div.page {
 								}
 								div.CodeMirror-linenumber {
 									color: #c8d2d7
-								}
-								div.Codemirror-line::selection {
-									background: #d7d4f0;
-								}
-								div.Codemirror-line::selection:window-inactive {
-									background: #d7d4f0;
 								}
 							}
 						}
@@ -284,6 +286,7 @@ div.page {
 				width: 200px;
 				height: calc(100% - 16px - 70px);
 				background-color: #fff;
+				border-left: solid 1px #e9eced;
 
 				> h3 {
 					margin: 0;
@@ -301,10 +304,11 @@ div.page {
 					list-style: none;
 
 					> li {
-						padding: 7px 10px;
 						border-bottom: 1px solid #ebeef0;
 
 						a {
+							display: block;
+							padding: 7px 10px;
 							text-decoration: none;
 
 							span.lines {
@@ -323,7 +327,7 @@ div.page {
 							}
 						}
 						&.active {
-							background-color: #d7d4f0;
+							background-color: $selection-background;
 						}
 					}
 				}

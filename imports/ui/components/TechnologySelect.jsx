@@ -13,7 +13,6 @@ export default class TechnologySelect extends React.Component {
 			selectedTechnologies: []
 		};
 		this.handleClick = this.handleClick.bind(this);
-		this.toggleTechnology = this.toggleTechnology.bind(this);
 	}
 
 
@@ -22,25 +21,6 @@ export default class TechnologySelect extends React.Component {
 		this.setState({
 			dropdownVisible: !this.state.dropdownVisible
 		});
-	}
-
-
-
-	toggleTechnology(i) {
-		const pos = this.state.selectedTechnologies.indexOf(i),
-			  newSelectedTechnologies = this.state.selectedTechnologies.slice();
-
-		if (pos > -1) {
-			newSelectedTechnologies.splice(pos, 1)
-			this.setState({
-				selectedTechnologies: newSelectedTechnologies
-			});
-		} else {
-			newSelectedTechnologies.push(i)
-			this.setState({
-				selectedTechnologies: newSelectedTechnologies
-			});
-		}
 	}
 
 
@@ -57,10 +37,10 @@ export default class TechnologySelect extends React.Component {
 			<div className="feature-select" onClick={this.handleClick}>
 
 				<div className="feature-header">
-					{ this.state.selectedTechnologies.length !== 0
+					{ this.props.selectedTechnologies.length !== 0
 						?
 						<h4>
-							{this.state.selectedTechnologies.map((st, i, a) => {
+							{this.props.selectedTechnologies.map((st, i, a) => {
 								if (i === a.length-1) {
 									return <span key={i}>{technologies[st]}</span>
 								} else {
@@ -82,8 +62,8 @@ export default class TechnologySelect extends React.Component {
 				<div className={dropdownClass}>
 					<TechnologySelectDropdownList
 						technologies={technologies}
-						toggleTechnology={this.toggleTechnology}
-						activeIndices={this.state.selectedTechnologies} />
+						toggleTechnology={this.props.toggleTechnology}
+						activeIndices={this.props.selectedTechnologies} />
 				</div>
 				
 			</div>
@@ -97,5 +77,7 @@ export default class TechnologySelect extends React.Component {
 
 
 TechnologySelect.propTypes = {
-	codeIsUploaded: React.PropTypes.bool.isRequired
+	codeIsUploaded:       React.PropTypes.bool.isRequired,
+	selectedTechnologies: React.PropTypes.array.isRequired,
+	toggleTechnology:     React.PropTypes.func.isRequired
 };

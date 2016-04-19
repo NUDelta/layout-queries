@@ -9,11 +9,9 @@ export default class ComponentSelect extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			dropdownVisible: false,
-			selectedComponent: null
+			dropdownVisible: false
 		};
 		this.handleClick = this.handleClick.bind(this);
-		this.selectComponent = this.selectComponent.bind(this);
 	}
 
 
@@ -21,14 +19,6 @@ export default class ComponentSelect extends React.Component {
 	handleClick(event) {
 		this.setState({
 			dropdownVisible: !this.state.dropdownVisible
-		});
-	}
-
-
-
-	selectComponent(i) {
-		this.setState({
-			selectedComponent: i
 		});
 	}
 
@@ -46,9 +36,9 @@ export default class ComponentSelect extends React.Component {
 			<div className="feature-select" onClick={this.handleClick}>
 
 				<div className="feature-header">
-					{ this.state.selectedComponent !== null
+					{ this.props.selectedComponent !== null
 						?
-						<h4>{componentPatterns[this.state.selectedComponent]}</h4>
+						<h4>{componentPatterns[this.props.selectedComponent]}</h4>
 						:
 						<h4>Component Pattern</h4>
 					}
@@ -63,8 +53,8 @@ export default class ComponentSelect extends React.Component {
 				<div className={dropdownClass}>
 					<ComponentSelectDropdownList
 						componentPatterns={componentPatterns}
-						selectComponent={this.selectComponent}
-						activeIndex={this.state.selectedComponent} />
+						selectComponent={this.props.selectComponent}
+						activeIndex={this.props.selectedComponent} />
 				</div>
 				
 			</div>
@@ -78,5 +68,7 @@ export default class ComponentSelect extends React.Component {
 
 
 ComponentSelect.propTypes = {
-	codeIsUploaded: React.PropTypes.bool.isRequired
+	codeIsUploaded:    React.PropTypes.bool.isRequired,
+	selectedComponent: React.PropTypes.number, // null if none yet
+	selectComponent:   React.PropTypes.func.isRequired
 };

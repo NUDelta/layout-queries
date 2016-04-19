@@ -35,3 +35,39 @@ export const remove = new ValidatedMethod({
 		ProExamples.remove(id);
 	}
 });
+
+
+
+export const query = new ValidatedMethod({
+	name: 'ProExamples.getWithTechnologies',
+	validate: new SimpleSchema({
+		component:    { type: String },
+		technologies: { type: [String] }
+	}).validator(),
+	run({ component, technologies }) {
+		// first match by component type
+		const proExamples = ProExamples.find({"componentPattern": component}).map((pe) => {
+
+			// calculate jaccard similarity
+			let intersection = 0;
+			for (let i=0; i<technologies.length; i++) {
+				if (pe.technologies.indexOf(technologies[i]) > -1) {
+					intersection++;
+				}
+			}
+			pe.confidence = intersection / (technologies.length + pe.technologies.length - intersection);
+
+			// return modified document object
+			return pe;
+		});
+
+		// sort array by jaccard similarity
+		return proExamples.sort((a, b) => {
+			if (a.confidence > b.confidence)
+				return -1;
+			if (a.confidence < b.confidence)
+				return 1;
+			return 0;
+		});
+	}
+});
