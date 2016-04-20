@@ -11,7 +11,7 @@ export default createContainer((params) => {
 
 	return {
 		connected: Meteor.status().connected,
-		annotations: Annotations.find({ proExampleId: proExampleId }).fetch(),
+		annotations: Annotations.find({ proExampleId: proExampleId }, {sort: {order: 1}}).fetch(),
 		annotationId: params.annotationId
 	}
 }, AnnotationsList);

@@ -13,5 +13,6 @@ Annotations.schema = new SimpleSchema({
 	lineStart:    { type: Number },
 	lineEnd:      { type: Number },
 	content:      { type: String },
+	order:        { type: Number },
 	createdAt:    { type: Date }
 });

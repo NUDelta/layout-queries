@@ -19,6 +19,17 @@ export default class Header extends React.Component {
 
 
 
+	componentDidUpdate(prevProps, prevState) {
+		if (!prevProps.codeIsUploaded && this.props.codeIsUploaded) {
+			this.setState({
+				selectedComponent: 0,
+				selectedTechnologies: [1]
+			});
+		}
+	}
+
+
+
 	selectComponent(i) {
 		this.setState({
 			selectedComponent: i

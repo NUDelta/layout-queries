@@ -423,12 +423,13 @@ Meteor.startup( () => {
 				technologies:     proExample.technologies
 			});
 
-			proExample.annotations.forEach((annotation) => {
+			proExample.annotations.forEach((annotation, i) => {
 				const annotationId = Annotations.insert({
 					proExampleId: proExampleId,
-					lineStart: annotation.lineStart,
-					lineEnd: annotation.lineEnd,
-					content: annotation.content
+					lineStart:    annotation.lineStart,
+					lineEnd:      annotation.lineEnd,
+					content:      annotation.content,
+					order:        i
 				});
 			});
 		});

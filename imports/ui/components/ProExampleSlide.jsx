@@ -13,6 +13,7 @@ export default class ProExampleSlide extends React.Component {
 
 
 	formatConfidence(c) {
+		// round to hudredths, always show hundredths
 		return (Math.ceil(c * 100) / 100).toFixed(2);
 	}
 
@@ -41,9 +42,6 @@ export default class ProExampleSlide extends React.Component {
 		);
 	}
 }
-
-
-// you're working on the color coding for the confidence circles
 
 
 

@@ -11,13 +11,15 @@ export const insert = new ValidatedMethod({
 		lineStart: { type: Number },
 		lineEnd:   { type: Number },
 		content:   { type: String },
+		order:     { type: Number }
 	}).validator(),
-	run({ proExampleId, lineStart, lineEnd, content }) {
+	run({ proExampleId, lineStart, lineEnd, content, order }) {
 		const annotation = {
 			proExampleId,
 			lineStart,
 			lineEnd,
 			content,
+			order,
 			createdAt: new Date()
 		};
 		Annotations.insert(annotation);
