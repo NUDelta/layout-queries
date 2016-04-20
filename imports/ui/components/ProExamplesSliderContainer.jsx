@@ -44,7 +44,6 @@ export default createContainer((params) => {
 
 	if (proExampleQuery.component !== null) {
 		proExamples = query.call({ component: proExampleQuery.component, technologies: proExampleQuery.technologies });
-		console.log(proExamples);
 	} else {
 		proExamples = [];
 	}

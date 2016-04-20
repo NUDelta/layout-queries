@@ -165,6 +165,9 @@ div.page {
 							&.active {
 								background-color: #fff;
 							}
+							&.good div.confidence i { color: green; }
+							&.mediocre div.confidence i { color: yellow; }
+							&.bad div.confidence i { color: red; }
 						}
 					}
 					div.empty-slider {

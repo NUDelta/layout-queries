@@ -48,20 +48,19 @@ export const query = new ValidatedMethod({
 		// first match by component type
 		const proExamples = ProExamples.find({"componentPattern": component}).map((pe) => {
 
-			// calculate jaccard similarity
+			// calculate jaccard similarity, add field to object
 			let intersection = 0;
-			for (let i=0; i<technologies.length; i++) {
-				if (pe.technologies.indexOf(technologies[i]) > -1) {
+			technologies.forEach((t) => {
+				if (pe.technologies.indexOf(t) > -1)
 					intersection++;
-				}
-			}
-			pe.confidence = intersection / (technologies.length + pe.technologies.length - intersection);
+			});
+			pe.confidence = intersection / (technologies.length + pe.technologies.length - intersection) || 0; // divide by zero
 
 			// return modified document object
 			return pe;
 		});
 
-		// sort array by jaccard similarity
+		// sort results by confidence rating
 		return proExamples.sort((a, b) => {
 			if (a.confidence > b.confidence)
 				return -1;

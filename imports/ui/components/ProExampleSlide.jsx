@@ -12,10 +12,20 @@ export default class ProExampleSlide extends React.Component {
 
 
 
+	formatConfidence(c) {
+		return (Math.ceil(c * 100) / 100).toFixed(2);
+	}
+
+
+
 	render() {
+		const confidence = this.props.proExample.confidence || 0;
 
 		classes = classNames({
-			active: this.props.active
+			active: this.props.active,
+			good: confidence >= 0.5,
+			mediocre: confidence >= 0.25 && confidence < 0.5,
+			bad: confidence < 0.25
 		});
 
 		return (
@@ -24,13 +34,16 @@ export default class ProExampleSlide extends React.Component {
 					<span className="url">{this.props.proExample.source}</span>
 					<div className="confidence">
 						<i className="fa fa-circle"></i>
-						<span>{0.98}</span>
+						<span>{this.formatConfidence(confidence)}</span>
 					</div>
 				</Link>
 			</li>
 		);
 	}
 }
+
+
+// you're working on the color coding for the confidence circles
 
 
 
