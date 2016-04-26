@@ -1,5 +1,5 @@
 
-/* Basic layout */
+/* Basics */
 	html {
 		width: 100%;
 		height: 100%;
@@ -20,11 +20,15 @@
 
 
 /* CodeMirror */
-$selection-background: darken(#f5faff, 5%);
-.CodeMirror-focused .CodeMirror-selected { background: $selection-background; }
-.CodeMirror-selected { background: $selection-background; }
-.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: $selection-background; }
-.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: $selection-background; }
+	$selection-background: darken(#f5faff, 5%);
+	.CodeMirror-focused .CodeMirror-selected { background: $selection-background; }
+	.CodeMirror-selected { background: $selection-background; }
+	.CodeMirror-line::selection,
+	.CodeMirror-line > span::selection,
+	.CodeMirror-line > span > span::selection { background: $selection-background; }
+	.CodeMirror-line::-moz-selection,
+	.CodeMirror-line > span::-moz-selection,
+	.CodeMirror-line > span > span::-moz-selection { background: $selection-background; }
 
 
 
@@ -41,7 +45,7 @@ div.page {
 			section.header {
 				position: relative;
 				width: 100%;
-				height: 70px;
+				height: 90px;
 				background-color: #fff;
 				box-shadow: 0 0 5px rgba(57, 70, 78, .2);
 				z-index: 100;
@@ -64,7 +68,7 @@ div.page {
 							margin: 0;
 							font-weight: normal;
 							font-size: 0.8em;
-							line-height: 60px;
+							line-height: 80px;
 							-webkit-user-select: none;
 							-moz-user-select: none;
 							-khtml-user-select: none;
@@ -72,14 +76,14 @@ div.page {
 						}
 						i {
 							float: right;
-							line-height: 60px;
+							line-height: 80px;
 							font-size: 1.0em;
 						}
 					}
 					div.feature-dropdown {
 						display: none;
 						position: absolute;
-						top: 70px;
+						top: 90px;
 						left: 0;
 						width: 100%;
 						z-index: 1000;
@@ -128,15 +132,16 @@ div.page {
 
 						> li {
 							display: inline-block;
-							width: 80px;
+							width: 140px;
 							height: 100%;
+							vertical-align: top;
 							background-color: #fafafa;
 							border-right: 1px solid #eee;
 							cursor: pointer;
 
 							a {
 								display: block;
-								padding: 5px;
+								padding: 10px 5px;
 								height: calc(100% - 10px);
 								text-decoration: none;
 
@@ -151,23 +156,44 @@ div.page {
 								}
 								div.confidence {
 
-									i {
-										margin-right: 5px;
-										font-size: 0.6em;
-										color: #7ED321;
+									div.bar {
+										margin-top: 12px;
+										width: 100%;
+										height: 6px;
+										background-color: #ddd;
+										border-radius: 5px;
+										overflow: hidden;
+
+										span.fill {
+											display: block;
+											height: 100%;
+										}
 									}
-									span {
-										font-size: 0.6em;
-										color: #999;
+									ul.similarities {
+										margin: 0;
+										padding: 3px 0 0 0;
+										width: 100%;
+										list-style: none;
+										overflow: auto;
+
+										li {
+											float: left;
+											margin: 5px 5px 0 0;
+											padding: 2px 4px;
+											font-size: 0.4em;
+											color: #aaa;
+											border: 1px solid #eee;
+											border-radius: 7px;
+										}
 									}
 								}
 							}
 							&.active {
 								background-color: #fff;
 							}
-							&.good div.confidence i { color: green; }
-							&.mediocre div.confidence i { color: yellow; }
-							&.bad div.confidence i { color: red; }
+							&.good div.confidence div.bar span.fill { background-color: #61bd6d; }
+							&.mediocre div.confidence div.bar span.fill { background-color: #fba026; }
+							&.bad div.confidence div.bar span.fill { background-color: #eb6b56; }
 						}
 					}
 					div.empty-slider {
@@ -188,7 +214,7 @@ div.page {
 			main {
 				float: left;
 				width: calc(100% - 201px);
-				height: calc(100% - 70px);
+				height: calc(100% - 90px);
 				overflow: auto;
 
 				section.pane {
@@ -287,7 +313,7 @@ div.page {
 				float: left;
 				padding: 8px 0;
 				width: 200px;
-				height: calc(100% - 16px - 70px);
+				height: calc(100% - 16px - 90px);
 				background-color: #fff;
 				border-left: solid 1px #e9eced;
 

@@ -22,20 +22,30 @@ export default class ProExampleSlide extends React.Component {
 	render() {
 		const confidence = this.props.proExample.confidence || 0;
 
-		classes = classNames({
+		const classes = classNames({
 			active: this.props.active,
 			good: confidence >= 0.5,
 			mediocre: confidence >= 0.25 && confidence < 0.5,
 			bad: confidence < 0.25
 		});
 
+		const barFillStyle = {
+			width: (confidence*100) + '%',
+		};
+
 		return (
 			<li className={classes}>
 				<Link to={"/examples/"+this.props.proExample._id}>
 					<span className="url">{this.props.proExample.source}</span>
 					<div className="confidence">
-						<i className="fa fa-circle"></i>
-						<span>{this.formatConfidence(confidence)}</span>
+						<div className="bar">
+							<span className="fill" style={barFillStyle}></span>
+						</div>
+						<ul className="similarities">
+							{this.props.proExample.intersections.map((i) => {
+								return <li>{i}</li>
+							})}
+						</ul>
 					</div>
 				</Link>
 			</li>
