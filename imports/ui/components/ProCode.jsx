@@ -22,8 +22,12 @@ export default class ProCode extends React.Component {
 						highlightStart={this.props.annotation.lineStart}
 						highlightEnd={this.props.annotation.lineEnd} />
 					:
+					this.props.proExample
+					?
 					<CodeEditor
 						code={this.props.proExample.code} />
+					:
+					""
 
 				}
 				{/*<CodeInfoRibbon
@@ -41,6 +45,6 @@ export default class ProCode extends React.Component {
 
 ProCode.propTypes = {
 	connected:  React.PropTypes.bool.isRequired,
-	proExample: React.PropTypes.object.isRequired,
+	proExample: React.PropTypes.object, // null if none active
 	annotation: React.PropTypes.object // null if none active
 };

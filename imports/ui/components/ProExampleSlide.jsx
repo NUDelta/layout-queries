@@ -42,8 +42,8 @@ export default class ProExampleSlide extends React.Component {
 							<span className="fill" style={barFillStyle}></span>
 						</div>
 						<ul className="similarities">
-							{this.props.proExample.intersections.map((i) => {
-								return <li>{i}</li>
+							{this.props.proExample.intersections.map((x, i) => {
+								return <li key={i}>{x}</li>
 							})}
 						</ul>
 					</div>
