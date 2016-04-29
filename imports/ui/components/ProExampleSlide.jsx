@@ -30,7 +30,7 @@ export default class ProExampleSlide extends React.Component {
 		});
 
 		const barFillStyle = {
-			width: (confidence*100) + '%',
+			width: confidence > 0 ? (confidence*100) + '%' : '5%', // want at least a little red
 		};
 
 		return (

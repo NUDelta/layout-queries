@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import ComponentSelectDropdownList from './ComponentSelectDropdownList.jsx';
 
@@ -16,10 +17,28 @@ export default class ComponentSelect extends React.Component {
 
 
 
+	componentDidMount() {
+		window.addEventListener('click', this.handleClick, false);
+	}
+
+
+
+	componentWillUnmount() {
+		window.removeEventListener('click', this.handleClick, false);
+	}
+
+
+
 	handleClick(event) {
-		this.setState({
-			dropdownVisible: !this.state.dropdownVisible
-		});
+		if (ReactDOM.findDOMNode(this).contains(event.target)) {
+            this.setState({
+            	dropdownVisible: !this.state.dropdownVisible
+            });
+        } else {
+        	this.setState({
+        		dropdownVisible: false
+        	});
+        }
 	}
 
 
@@ -33,7 +52,7 @@ export default class ComponentSelect extends React.Component {
 		});
 
 		return (
-			<div className="feature-select" onClick={this.handleClick}>
+			<div className="feature-select">
 
 				<div className="feature-header">
 					{ this.props.selectedComponent !== null
