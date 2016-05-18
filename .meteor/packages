@@ -20,3 +20,5 @@ aldeed:simple-schema
 mdg:validated-method
 react-meteor-data
 blaze-html-templates
+jorisbontje:vis
+momentjs:moment

@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/Header.jsx';
-import UserPane from '../components/UserPane.jsx';
-import ProPane from '../components/ProPane.jsx';
-import Panel from '../components/Panel.jsx';
+import Header from '../components/old/Header.jsx';
+import UserPane from '../components/old/UserPane.jsx';
+import ProPane from '../components/old/ProPane.jsx';
+import Panel from '../components/old/Panel.jsx';
 
 export default class DashLayout extends React.Component {
 

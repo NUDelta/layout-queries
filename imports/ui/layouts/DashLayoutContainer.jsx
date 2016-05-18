@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
 import DashLayout from './DashLayout.jsx';
 
 export default class DashLayoutContainer extends React.Component {

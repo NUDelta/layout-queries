@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { query } from '../../api/ProExamples/methods.js';
+import { query } from '../../../api/ProExamples/methods.js';
 import ProExamplesSlider from './ProExamplesSlider.jsx';
 
 

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import Annotations from '../../api/Annotations/Annotations.js';
+import Annotations from '../../../api/Annotations/Annotations.js';
 import AnnotationsList from './AnnotationsList.jsx';
 
 
