@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Video extends React.Component {
+export default class VideoModule extends React.Component {
 
 
 
@@ -57,7 +57,7 @@ export default class Video extends React.Component {
 
 	render() {
 		return (
-			<div className="recording">
+			<section className="video-module">
 				<video
 					ref="video"
 					width="450"
@@ -66,7 +66,7 @@ export default class Video extends React.Component {
 					muted>
 					<source src="/gif.mp4" type="video/mp4" />
 				</video>
-			</div>
+			</section>
 		);
 	}
 
@@ -76,15 +76,7 @@ export default class Video extends React.Component {
 
 
 
-Video.PropTypes = {
+VideoModule.PropTypes = {
 	videoTime: React.PropTypes.number.isRequired,
 	setTimelineTime: React.PropTypes.func.isRequired
 };
-
-
-
-// stop it. Go to Norris. You will be inifinitely more productive.
-// todos:
-//		1) handle more realistic amounts of data
-//		2) think about how these affordances map to users ** improving their own code **
-//		3) position everything where it would actually be (layout)

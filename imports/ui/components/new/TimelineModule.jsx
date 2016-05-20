@@ -2,7 +2,7 @@ import React from 'react';
 import { vis } from 'meteor/jorisbontje:vis';
 import { moment } from 'meteor/momentjs:moment';
 
-export default class Timeline extends React.Component {
+export default class TimelineModule extends React.Component {
 
 
 
@@ -20,7 +20,7 @@ export default class Timeline extends React.Component {
 
 
 	componentDidMount() {
-		const container = document.getElementById('vis');
+		const container = document.getElementById('visjs');
 		const zero = this.state.zero;
 		const items = this.makeItems();
 
@@ -37,9 +37,9 @@ export default class Timeline extends React.Component {
 			zoomable: false,
 			margin: { item: { horizontal: 0, vertical: 10 } },
 			start: moment(zero),
-			end: moment(zero).add(9, 's'),
+			end: moment(zero).add(14, 's'),
 			min: moment(zero),
-			timeAxis: { scale: 'millisecond', step: 100 },
+			timeAxis: { scale: 'millisecond', step: 200 },
 			stack: false,
 			format: {
 				minorLabels: {
@@ -85,10 +85,17 @@ export default class Timeline extends React.Component {
 
 		let items = [];
 		Array.prototype.push.apply(items, this.makeThumbs(paths, zero, 1));
-		Array.prototype.push.apply(items, this.makeCallStack(1, moment(zero).add(3, 's')));
-		Array.prototype.push.apply(items, this.makeCallStack(2, moment(zero).add(3.5, 's')));
-		Array.prototype.push.apply(items, this.makeCallStack(3, moment(zero).add(7, 's')));
-		Array.prototype.push.apply(items, this.makeCallStack(4, moment(zero).add(12, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(1, moment(zero).add(1, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(2, moment(zero).add(2.1, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(3, moment(zero).add(3.2, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(4, moment(zero).add(4.2, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(5, moment(zero).add(5.1, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(6, moment(zero).add(6.4, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(7, moment(zero).add(7.2, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(8, moment(zero).add(8.4, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(9, moment(zero).add(9.4, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(10, moment(zero).add(10.4, 's')));
+		Array.prototype.push.apply(items, this.makeCallStack(11, moment(zero).add(11.6, 's')));
 
 		return items;
 	}
@@ -180,7 +187,6 @@ export default class Timeline extends React.Component {
 		const sec = moment(properties.time).second(),
 			  mil = moment(properties.time).millisecond(),
 			  time = sec + (mil / 1000);
-		console.log('onTimeChanged');
 		this.props.setVideoTime(time);
 	}
 
@@ -206,7 +212,6 @@ export default class Timeline extends React.Component {
 		currTime = secs + (mill / 1000);
 
 		const items = this.state.timeline.itemSet.items;
-		console.log(items);
 
 		let select = [], start;
 
@@ -232,7 +237,9 @@ export default class Timeline extends React.Component {
 
 	render() {
 		return (
-			<div id="vis"></div>
+			<section className="timeline-module">
+				<div id="visjs"></div>
+			</section>
 		);
 	}
 
@@ -242,7 +249,7 @@ export default class Timeline extends React.Component {
 
 
 
-Timeline.PropTypes = {
+TimelineModule.PropTypes = {
 	timelineTime: React.PropTypes.number.isRequired,
 	setVideoTime: React.PropTypes.func.isRequired
 };
