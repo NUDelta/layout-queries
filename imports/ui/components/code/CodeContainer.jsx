@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import Codemirror from 'react-codemirror';
-import 'codemirror/mode/javascript/javascript.js';
 import ProExamples from '../../../api/ProExamples/ProExamples.js';
+import Code from './Code.jsx';
 
 
 
@@ -26,16 +25,10 @@ export default createContainer((params) => {
 
 
 
-	const options = {
-		lineNumbers: true,
-		theme: 'neo'
+	return {
+		code: code,
+		activeCodeStart: params.activeCodeStart,
+		activeCodeEnd: params.activeCodeEnd
 	};
 
-
-
-	return {
-		value: code,
-		options: options
-	}
-
-}, Codemirror);
+}, Code);

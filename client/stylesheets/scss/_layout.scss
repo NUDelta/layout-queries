@@ -30,22 +30,23 @@ html {
 					}
 					section.code-module {
 						float: left;
-						width: 50%;
-						height: calc(100% - 90px - 310px);
+						width: calc(50% - 1px);
+						height: calc(100% - 90px - 280px);
 					}
 					section.video-module {
 						float: left;
 						width: 50%;
-						height: calc(100% - 90px - 310px);
+						height: calc(100% - 90px - 280px);
 
 						video {
 							width: 100%;
 							height: 100%;
 						}
 					}
-					section.-timeline-module {
+					section.timeline-module {
+						clear: both;
 						width: 100%;
-						height: 310px;
+						height: 280px;
 					}
 				}
 			}

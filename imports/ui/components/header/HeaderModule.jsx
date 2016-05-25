@@ -3,8 +3,8 @@ import HeaderComponentSelector  from './HeaderComponentSelector.jsx';
 import HeaderTechnologySelector from './HeaderTechnologySelector.jsx';
 import HeaderExamplesSliderContainer     from './HeaderExamplesSliderContainer.jsx';
 
-const COMPONENTS = ["Draggable Map", "Snapping Points"];
-const TECHNOLOGIES = ["jQuery", "Angular", "ngAnimate", "TweenMax"];
+const COMPONENTS = ["Draggable Map"];
+const TECHNOLOGIES = ["jQuery", "Canvas"];
 
 export default class HeaderModule extends React.Component {
 

@@ -9,10 +9,13 @@ export default class TimelineLayoutContainer extends React.Component {
 		super(props);
 		this.state = {
 			vTime: 0,
-			tTime: 0
+			tTime: 0,
+			activeCodeStart: null,
+			activeCodeEnd: null
 		};
 		this.setVideoTime = this.setVideoTime.bind(this);
 		this.setTimelineTime = this.setTimelineTime.bind(this);
+		this.setActiveCode = this.setActiveCode.bind(this);
 	}
 
 
@@ -29,6 +32,15 @@ export default class TimelineLayoutContainer extends React.Component {
 
 
 
+	setActiveCode(start, end) {
+		this.setState({
+			activeCodeStart: start,
+			activeCodeEnd: end
+		});
+	}
+
+
+
 	render() {
 		return (
 			<TimelineLayout
@@ -36,7 +48,10 @@ export default class TimelineLayoutContainer extends React.Component {
 				videoTime={this.state.vTime}
 				timelineTime={this.state.tTime}
 				setVideoTime={this.setVideoTime}
-				setTimelineTime={this.setTimelineTime} />
+				setTimelineTime={this.setTimelineTime}
+				activeCodeStart={this.state.activeCodeStart}
+				activeCodeEnd={this.state.activeCodeEnd}
+				setActiveCode={this.setActiveCode} />
 		);
 	}
 

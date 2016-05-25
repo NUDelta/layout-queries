@@ -1,4 +1,5 @@
 section.code-module {
+	border-right: 1px solid #cfd6d9;
 
 	.CodeMirror-focused .CodeMirror-selected { background: $code-selection; }
 	.CodeMirror-selected { background: $code-selection; }
@@ -14,6 +15,7 @@ section.code-module {
 
 		div.CodeMirror {
 			height: 100%;
+			font-size: 0.9em;
 			background-color: $code-background;
 
 			div.CodeMirror-gutters {
