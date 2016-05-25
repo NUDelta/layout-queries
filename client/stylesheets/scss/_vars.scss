@@ -1,1 +1,32 @@
+/* Type */
 $font-family: Lucida Grande, Arial, Helvetica, sans-serif;
+
+
+
+/* CodeMirror */
+$code-selection: darken(#f5faff, 5%);
+$code-background: #f3f5f6;
+$code-linenumber: #c8d2d7;
+
+
+
+/* Video */
+$video-background: #39464E;
+
+
+
+/* Timeline */
+$event-text: #C3AC58;
+$event-background: lighten(#F9EBB4, 15%);
+$event-border: darken(rgba(246, 217, 109, 0.4), 10%);
+$event-selected: #F9EBB4;
+
+$event-callback-text: #368EB4;
+$event-callback-background: lighten(#AAD4E6, 15%);
+$event-callback-border: darken(rgba(88, 171, 207, 0.4), 10%);
+$event-callback-selected: #AAD4E6;
+
+$dom-hook-text: #1B9278;
+$dom-hook-background: lighten(#8FDCCD, 15%);
+$dom-hook-border: darken(rgba(41, 187, 156, 0.4), 10%);
+$dom-hook-selected: #8FDCCD;

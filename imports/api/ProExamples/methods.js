@@ -72,3 +72,49 @@ export const query = new ValidatedMethod({
 		});
 	}
 });
+
+
+
+export const query2 = new ValidatedMethod({
+	name: 'ProExamples.getWithTechnologies2',
+	validate: new SimpleSchema({
+		components:   { type: [String] },
+		technologies: { type: [String] }
+	}).validator(),
+	run({ components, technologies }) {
+
+		let examples = [];
+		let testExamples = ProExamples.find();
+
+		// first get all components
+		components.forEach( (component) => {
+			examples.push.apply(examples, ProExamples.find({"componentPattern": component}).fetch());
+		});
+
+		examples = examples.map( (e) => {
+
+			// find technology intersection
+			e.intersections = technologies.filter(function(t) {
+			    return e.technologies.indexOf(t) != -1;
+			});
+
+			// calculate jaccard similarity, add field to object
+			let intersection = e.intersections.length,
+			    union        = technologies.length + e.technologies.length - e.intersections.length;
+			e.confidence = (intersection / union) || 0; // divide by zero
+
+			// return modified document object
+			return e;
+		});
+
+		// sort results by confidence rating
+		return examples.sort((a, b) => {
+			if (a.confidence > b.confidence)
+				return -1;
+			if (a.confidence < b.confidence)
+				return 1;
+			return 0;
+		});
+
+	}
+});

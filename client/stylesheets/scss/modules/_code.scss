@@ -1,0 +1,27 @@
+section.code-module {
+
+	.CodeMirror-focused .CodeMirror-selected { background: $code-selection; }
+	.CodeMirror-selected { background: $code-selection; }
+	.CodeMirror-line::selection,
+	.CodeMirror-line > span::selection,
+	.CodeMirror-line > span > span::selection { background: $code-selection; }
+	.CodeMirror-line::-moz-selection,
+	.CodeMirror-line > span::-moz-selection,
+	.CodeMirror-line > span > span::-moz-selection { background: $code-selection; }
+
+	div.ReactCodeMirror {
+		height: 100%;
+
+		div.CodeMirror {
+			height: 100%;
+			background-color: $code-background;
+
+			div.CodeMirror-gutters {
+				background-color: $code-background;
+			}
+			div.CodeMirror-linenumber {
+				color: $code-linenumber;
+			}
+		}
+	}
+}

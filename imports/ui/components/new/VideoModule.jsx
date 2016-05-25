@@ -60,8 +60,6 @@ export default class VideoModule extends React.Component {
 			<section className="video-module">
 				<video
 					ref="video"
-					width="450"
-					height="400"
 					controls
 					muted>
 					<source src="/gif.mp4" type="video/mp4" />

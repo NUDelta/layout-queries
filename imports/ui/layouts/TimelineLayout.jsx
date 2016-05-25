@@ -1,6 +1,7 @@
 import React from 'react';
-import CodeModule from '../components/new/CodeModule.jsx';
-import VideoModule      from '../components/new/VideoModule.jsx';
+import HeaderModule   from '../components/new/header/HeaderModule.jsx';
+import CodeModule     from '../components/new/CodeModule.jsx';
+import VideoModule    from '../components/new/VideoModule.jsx';
 import TimelineModule from '../components/new/TimelineModule.jsx';
 
 export default class TimelineLayout extends React.Component {
@@ -15,6 +16,8 @@ export default class TimelineLayout extends React.Component {
 	render() {
 		return (
 			<div className="layout">
+				<HeaderModule
+					activeExampleId={this.props.activeExampleId} />
 				<CodeModule />
 				<VideoModule
 					videoTime={this.props.videoTime}
@@ -33,6 +36,7 @@ export default class TimelineLayout extends React.Component {
 
 
 TimelineLayout.PropTypes = {
+	activeExampleId: React.PropTypes.string, // only if example selected
 	videoTime: React.PropTypes.number.isRequired,
 	timelineTime: React.PropTypes.number.isRequired,
 	setVideoTime: React.PropTypes.func.isRequired,

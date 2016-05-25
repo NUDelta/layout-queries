@@ -14,7 +14,8 @@ export default class TimelinePage extends React.Component {
 	render() {
 		return (
 			<div className="page" id="timeline">
-				<TimelineLayoutContainer />
+				<TimelineLayoutContainer
+					activeExampleId={this.props.params.exampleId} />
 			</div>
 		);
 	}

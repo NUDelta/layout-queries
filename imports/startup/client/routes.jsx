@@ -13,6 +13,7 @@ export const renderRoutes = () => (
 		<Route path="/examples/:proExampleId/annotations/:annotationId" component={DashPage} />
 
 		<Route path="/timeline" component={TimelinePage} />
+		<Route path="/timeline/examples/:exampleId" component={TimelinePage} />
 
 	</Router>
 );

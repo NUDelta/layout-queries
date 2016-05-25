@@ -22,7 +22,31 @@ html {
 				}
 
 				&#timeline {
+					overflow: auto;
 
+					section.header-module {
+						width: 100%;
+						height: 90px;
+					}
+					section.code-module {
+						float: left;
+						width: 50%;
+						height: calc(100% - 90px - 310px);
+					}
+					section.video-module {
+						float: left;
+						width: 50%;
+						height: calc(100% - 90px - 310px);
+
+						video {
+							width: 100%;
+							height: 100%;
+						}
+					}
+					section.-timeline-module {
+						width: 100%;
+						height: 310px;
+					}
 				}
 			}
 		}

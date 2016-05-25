@@ -29,33 +29,33 @@ section.timeline-module {
 			}
 		}
 		div.event {
-			color: #C3AC58;
-			background-color: lighten(#F9EBB4, 15%);
-			border-color: darken(rgba(246, 217, 109, 0.4), 10%);
+			color: $event-text;
+			background-color: $event-background;
+			border-color: $event-border;
 			border-width: 2px;
 
 			&.selected {
-				background-color: #F9EBB4;
+				background-color: $event-selected;
 			}
 		}
 		div.event-callback {
-			color: #368EB4;
-			background-color: lighten(#AAD4E6, 15%);
-			border-color: darken(rgba(88, 171, 207, 0.4), 10%);
+			color: $event-callback-text;
+			background-color: $event-callback-background;
+			border-color: $event-callback-border;
 			border-width: 2px;
 
 			&.selected {
-				background-color: #AAD4E6;
+				background-color: $event-callback-selected;
 			}
 		}
 		div.dom-hook {
-			color: #1B9278;
-			background-color: lighten(#8FDCCD, 15%);
-			border-color: darken(rgba(41, 187, 156, 0.4), 10%);
+			color: $dom-hook-text;
+			background-color: $dom-hook-background;
+			border-color: $dom-hook-border;
 			border-width: 2px;
 
 			&.selected {
-				background-color: #8FDCCD;
+				background-color: $dom-hook-selected;
 			}
 		}
 		div.box.event-callback::before, div.box.dom-hook::before {

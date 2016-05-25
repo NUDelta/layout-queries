@@ -32,6 +32,7 @@ export default class TimelineLayoutContainer extends React.Component {
 	render() {
 		return (
 			<TimelineLayout
+				activeExampleId={this.props.activeExampleId}
 				videoTime={this.state.vTime}
 				timelineTime={this.state.tTime}
 				setVideoTime={this.setVideoTime}
@@ -41,4 +42,10 @@ export default class TimelineLayoutContainer extends React.Component {
 
 
 
+};
+
+
+
+TimelineLayoutContainer.PropTypes = {
+	activeExampleId: React.PropTypes.string, // only if example selected
 };
