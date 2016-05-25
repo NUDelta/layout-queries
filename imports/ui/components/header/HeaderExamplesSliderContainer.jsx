@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { query2 } from '../../../../api/ProExamples/methods.js';
+import { query } from '../../../api/ProExamples/methods.js';
 import HeaderExamplesSlider from './HeaderExamplesSlider.jsx';
 
 
@@ -19,7 +19,7 @@ export default createContainer((params) => {
 		technologies: tSelections.map( (cs) => t[cs] )
 	};
 
-	const examples = query2.call(exampleQuery);
+	const examples = query.call(exampleQuery);
 
 	return {
 		connected: Meteor.status().connected,

@@ -5,7 +5,7 @@ export default HeaderNoExamples = (props) => {
 
 
 	return (
-		<div>
+		<div className="header-module-no-examples">
 			<span>No results yet. Please set component options.</span>
 		</div>
 	);

@@ -3,6 +3,19 @@ $font-family: Lucida Grande, Arial, Helvetica, sans-serif;
 
 
 
+/* Header */
+$header-background: #fff;
+$header-selector-text: #555;
+$header-dropdown-item-icon: #4A90E2;
+$header-slide-background: #fafafa;
+$header-slide-active-background: #fff;
+$header-slide-border: #eee;
+$header-confidence-good: #61bd6d;
+$header-confidence-mediocre: #fba026;;
+$header-confidence-bad: #eb6b56;
+
+
+
 /* CodeMirror */
 $code-selection: darken(#f5faff, 5%);
 $code-background: #f3f5f6;

@@ -1,8 +1,8 @@
 import React from 'react';
-import HeaderModule   from '../components/new/header/HeaderModule.jsx';
-import CodeModule     from '../components/new/code/CodeModule.jsx';
-import VideoModule    from '../components/new/VideoModule.jsx';
-import TimelineModule from '../components/new/TimelineModule.jsx';
+import HeaderModule   from '../components/header/HeaderModule.jsx';
+import CodeModule     from '../components/code/CodeModule.jsx';
+import VideoModule    from '../components/VideoModule.jsx';
+import TimelineModule from '../components/TimelineModule.jsx';
 
 export default class TimelineLayout extends React.Component {
 

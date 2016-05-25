@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import HeaderDropdownSelecction from './HeaderDropdownSelection.jsx';
 import HeaderDropdown from './HeaderDropdown.jsx';
 
@@ -11,20 +12,29 @@ export default class HeaderComponentSelector extends React.Component {
 		this.state = {
 			dropdownActive: false
 		};
-		this.toggleDropdown = this.toggleDropdown.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 
 
-	toggleDropdown(event) {
-		this.setState({ dropdownActive: !this.state.dropdownActive });
+	componentDidMount() { window.addEventListener('click', this.handleClick, false); }
+	componentWillUnmount() { window.removeEventListener('click', this.handleClick, false); }
+
+
+
+	handleClick(event) {
+		if (ReactDOM.findDOMNode(this).contains(event.target)) {
+            this.setState({ dropdownActive: !this.state.dropdownActive });
+        } else {
+        	this.setState({ dropdownActive: false });
+        }
 	}
 
 
 
 	render() {
 		return (
-			<div className="header-module-selector" onClick={this.toggleDropdown}>
+			<div className="header-module-selector">
 				<HeaderDropdownSelection
 					items={this.props.components}
 					selections={this.props.componentSelections}

@@ -23,7 +23,7 @@ export default HeaderExampleSlide = (props) => {
 
 
 
-	const url = "/timeline/examples/" + props.id;
+	const url = "/examples/" + props.id;
 
 
 

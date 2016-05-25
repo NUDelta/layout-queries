@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Codemirror from 'react-codemirror';
 import 'codemirror/mode/javascript/javascript.js';
-import ProExamples from '../../../../api/ProExamples/ProExamples.js';
+import ProExamples from '../../../api/ProExamples/ProExamples.js';
 
 
 
