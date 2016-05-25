@@ -34,7 +34,7 @@ export default class Timeline extends React.Component {
 				zoomable: false,
 				margin: { item: { horizontal: 0, vertical: 10 } },
 				start: moment(zero),
-				end: moment(zero).add(14, 's'),
+				end: moment(zero).add(10, 's'),
 				min: moment(zero),
 				showCurrentTime: false,
 				timeAxis: { scale: 'millisecond', step: 200 },
@@ -128,10 +128,9 @@ export default class Timeline extends React.Component {
 
 	onItemSelect(properties) {
 		const items = this.state.timeline.itemSet.items;
-		const item = items[properties.items[0]];
-		const group = item.data.group;
+		const item = items[properties.items[0]].id;
 
-		const lines = this.props.getLines(group);
+		const lines = this.props.getLines(item.substring(0, item.length - 2));
 		this.props.setActiveCode(lines.start, lines.end);
 	}
 

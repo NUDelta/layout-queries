@@ -60,8 +60,18 @@ export default createContainer((params) => {
 				];
 				break;
 			case 'archfire.org':
+				groups = [
+					{ id: 1, content: 'Thumbnails', className: 'thumbs'},
+					{ id: 2, content: 'Events' },
+					{ id: 3, content: 'DOM Hooks' }
+				];
 				break;
 			case 'thorsummoner.github.io':
+				groups = [
+					{ id: 1, content: 'Thumbnails', className: 'thumbs'},
+					{ id: 2, content: 'Events' },
+					{ id: 3, content: 'DOM Hooks' }
+				];
 				break;
 		}
 
@@ -109,15 +119,43 @@ export default createContainer((params) => {
 				starts.forEach( (start, i) => {
 					s = moment(zero).add(start, 's');
 
-					stacks.push({ id: 'event-' + i, group: 2, className: 'event', content: 'mousedown', start: s });
-					stacks.push({ id: 'eventCallback-' + i, group: 3, className: 'event-callback', content: 'drag()', start: moment(s).add(0.1, 's') });
-					stacks.push({ id: 'domHook-' + i, group: 4, className: 'dom-hook', content: 'Map.update()', start: moment(s).add(0.2, 's') });
+					stacks.push({ id: 'xkcd-event-' + i, group: 2, className: 'event', content: 'mousedown', start: s });
+					stacks.push({ id: 'xkcd-eventCallback-' + i, group: 3, className: 'event-callback', content: 'drag()', start: moment(s).add(0.1, 's') });
+					stacks.push({ id: 'xkcd-domHook-' + i, group: 4, className: 'dom-hook', content: 'Map.update()', start: moment(s).add(0.2, 's') });
 				});
 				break;
 
 			case 'archfire.org':
+				starts = [0.2, 6];
+				starts.forEach( (start, i) => {
+					s = moment(zero).add(start, 's');
+
+					stacks.push({ id: 'archfire-event-onmousedown-' + i, group: 2, className: 'event', content: 'onmousedown', start: s });
+					stacks.push({ id: 'archfire-domHook-onmousedown-' + i, group: 3, className: 'dom-hook', content: 'startX, startY, myDragFlag', start: moment(s).add(0.2, 's') });
+
+					stacks.push({ id: 'archfire-event-onmousemove-' + i, group: 2, className: 'event', content: 'onmousemove', start: moment(s).add(0.7, 's') });
+					stacks.push({ id: 'archfire-domHook-onmousemove-' + i, group: 3, className: 'dom-hook', content: 'style.left, style.top', start: moment(s).add(0.9, 's') });
+
+					stacks.push({ id: 'archfire-event-onmouseup-' + i, group: 2, className: 'event', content: 'onmouseup', start: moment(s).add(1.3, 's') });
+					stacks.push({ id: 'archfire-domHook-onmouseup-' + i, group: 3, className: 'dom-hook', content: 'myDragFlag', start: moment(s).add(1.5, 's') });
+
+					if (i % 2 == 0) {
+						stacks.push({ id: 'archfire-event-onmouseout-' + i, group: 2, className: 'event', content: 'onmouseout', start: moment(s).add(1.9, 's') });
+						stacks.push({ id: 'archfire-domHook-onmouseout-' + i, group: 3, className: 'dom-hook', content: 'style.left, style.top', start: moment(s).add(2.1, 's') });
+					}
+				});
 				break;
 			case 'thorsummoner.github.io':
+				starts = [0.5, 4.5, 8.5];
+				starts.forEach( (start, i) => {
+					s = moment(zero).add(start, 's');
+
+					stacks.push({ id: 'thorsummoner-event-onload-' + i, group: 2, className: 'event', content: 'onload', start: s });
+					stacks.push({ id: 'thorsummoner-domHook-onload-' + i, group: 3, className: 'dom-hook', content: 'background.map.tileset.src, background.map.map.src', start: moment(s).add(0.2, 's') });
+
+					stacks.push({ id: 'thorsummoner-event-mousemove-' + i, group: 2, className: 'event', content: 'mousemove', start: moment(s).add(0.7, 's') });
+					stacks.push({ id: 'thorsummoner-domHook-mousemove-' + i, group: 3, className: 'dom-hook', content: 'background.map.offset', start: moment(s).add(0.9, 's') });
+				});
 				break;
 		}
 
@@ -171,32 +209,79 @@ export default createContainer((params) => {
 			default:
 				return item.content;
 				break;
-
 		}
 	}
 
 
 
-	function getLines(group) {
+	function getLines(idString) {
 		let lines = {
 			start: null,
 			end: null
 		};
 
-		switch(group) {
-			case 1:
-				break;
-			case 2:
+		switch(idString) {
+			case 'xkcd-event':
 				lines.start = 116;
 				lines.end = 124;
 				break;
-			case 3:
+			case 'xkcd-eventCallback':
 				lines.start = 105;
 				lines.end = 112;
 				break;
-			case 4:
+			case 'xkcd-domHook':
 				lines.start = 62;
 				lines.end = 100;
+				break;
+
+			case 'archfire-event-onmousedown':
+				lines.start = 2;
+				lines.end = 8;
+				break;
+			case 'archfire-domHook-onmousedown':
+				lines.start = 4;
+				lines.end = 6;
+				break;
+			case 'archfire-event-onmousemove':
+				lines.start = 9;
+				lines.end = 24;
+				break;
+			case 'archfire-domHook-onmousemove':
+				lines.start = 12;
+				lines.end = 13;
+				break;
+			case 'archfire-event-onmouseup':
+				lines.start = 25;
+				lines.end = 29;
+				break;
+			case 'archfire-domHook-onmouseup':
+				lines.start = 27;
+				lines.end = 27;
+				break;
+			case 'archfire-event-onmouseout':
+				lines.start = 30;
+				lines.end = 53;
+				break;
+			case 'archfire-domHook-onmouseout':
+				lines.start = 38;
+				lines.end = 50;
+				break;
+
+			case 'thorsummoner-event-onload':
+				lines.start = 99;
+				lines.end = 102;
+				break;
+			case 'thorsummoner-domHook-onload':
+				lines.start = 100;
+				lines.end = 101;
+				break;
+			case 'thorsummoner-event-mousemove':
+				lines.start = 52;
+				lines.end = 77;
+				break;
+			case 'thorsummoner-domHook-mousemove':
+				lines.start = 57;
+				lines.end = 75;
 				break;
 		}
 		return lines;
