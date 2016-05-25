@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderModule   from '../components/new/header/HeaderModule.jsx';
-import CodeModule     from '../components/new/CodeModule.jsx';
+import CodeModule     from '../components/new/code/CodeModule.jsx';
 import VideoModule    from '../components/new/VideoModule.jsx';
 import TimelineModule from '../components/new/TimelineModule.jsx';
 
@@ -18,7 +18,8 @@ export default class TimelineLayout extends React.Component {
 			<div className="layout">
 				<HeaderModule
 					activeExampleId={this.props.activeExampleId} />
-				<CodeModule />
+				<CodeModule
+					activeExampleId={this.props.activeExampleId} />
 				<VideoModule
 					videoTime={this.props.videoTime}
 					setTimelineTime={this.props.setTimelineTime} />
