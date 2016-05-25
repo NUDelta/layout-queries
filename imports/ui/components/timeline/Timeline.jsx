@@ -62,7 +62,7 @@ export default class Timeline extends React.Component {
 			setTimeout(function () {
 				// images loaded --> redraw
 				this.state.timeline.redraw();
-				// this.state.timeline.addCustomTime(moment(zero), 1);
+				this.state.timeline.addCustomTime(moment(zero), 1);
 			}.bind(this), 1000);
 		});
 	}
@@ -85,12 +85,19 @@ export default class Timeline extends React.Component {
 
 		// new example, not initial load
 		if (this.props.activeExampleId && this.state.timeline) {
-			this.state.timeline.setGroups(this.props.groups);
-			this.state.timeline.setItems(this.props.items);
-			this.state.timeline.redraw();
-			setTimeout(() => {
+
+			const itemsAdded = prevProps.items.length !== this.props.items.length;
+			const newExample = prevProps.activeExampleId !== this.props.activeExampleId;
+
+			if (itemsAdded || newExample) {
+
+				this.state.timeline.setGroups(this.props.groups);
+				this.state.timeline.setItems(this.props.items);
 				this.state.timeline.redraw();
-			}, 1000);
+				setTimeout(() => {
+					this.state.timeline.redraw();
+				}, 1000);
+			}
 		}
 	}
 

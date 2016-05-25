@@ -1,16 +1,18 @@
 import React from 'react';
 
-export default class VideoModule extends React.Component {
+export default class Video extends React.Component {
 
 
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			block: false
+			block: false,
+			videoSource: ''
 		};
 		this.handleTimeChange = this.handleTimeChange.bind(this);
 	}
+
 
 
 	componentDidMount() {
@@ -22,13 +24,17 @@ export default class VideoModule extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		this.setState({
-			block: true
+			block: true,
+			videoSource: nextProps.videoSource
 		});
 	}
 
 
 
 	shouldComponentUpdate(nextProps, nextState) {
+		if (this.state.videoSource != nextState.videoSource)
+			return true;
+
 		if (this.props.videoTime == nextProps.videoTime)
 			return false;
 		return true;
@@ -57,24 +63,23 @@ export default class VideoModule extends React.Component {
 
 	render() {
 		return (
-			<section className="video-module">
-				<video
-					ref="video"
-					controls
-					muted>
-					<source src="/gif.mp4" type="video/mp4" />
-				</video>
-			</section>
+			<video
+				ref="video"
+				src={this.state.videoSource}
+				controls
+				muted>
+			</video>
 		);
 	}
 
 
 
-}
+};
 
 
 
-VideoModule.PropTypes = {
+Video.PropTypes = {
 	videoTime: React.PropTypes.number.isRequired,
-	setTimelineTime: React.PropTypes.func.isRequired
+	setTimelineTime: React.PropTypes.func.isRequired,
+	videoSource: React.PropTypes.string.isRequired
 };
