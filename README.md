@@ -10,19 +10,19 @@ facilitating the component’s lifecycle.
 ## Set up project on your own machine
 1. Clone the repository
 2. Make sure you have the latest version of Meteor installed:
-```
-$ curl https://install.meteor.com/ | sh
-```
+	```
+	$ curl https://install.meteor.com/ | sh
+	```
 3. To install npm package dependencies:
-```
-$ npm install
-```
+	```
+	$ npm install
+	```
 4. Ensure you have all Meteor package dependencies:
-```
-$ meteor update
-```
+	```
+	$ meteor update
+	```
 5. Start up the application:
-```
-$ meteor
-```
+	```
+	$ meteor
+	```
 6. Point your browser to localhost:3000 to use the application
