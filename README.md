@@ -8,21 +8,24 @@ facilitating the component’s lifecycle.
 
 
 ## Set up project on your own machine
-1. Clone the repository
-2. Make sure you have the latest version of Meteor installed:
-	```
-	$ curl https://install.meteor.com/ | sh
-	```
-3. To install npm package dependencies:
-	```
-	$ npm install
-	```
-4. Ensure you have all Meteor package dependencies:
-	```
-	$ meteor update
-	```
-5. Start up the application:
-	```
-	$ meteor
-	```
-6. Point your browser to localhost:3000 to use the application
+Clone the repository:
+```
+$ git clone https://github.com/NUDelta/pattern-matching.git
+```
+Make sure you have the latest version of Meteor installed:
+```
+$ curl https://install.meteor.com/ | sh
+```
+To install npm package dependencies:
+```
+$ npm install
+```
+Ensure you have all Meteor package dependencies:
+```
+$ meteor update
+```
+Start up the application:
+```
+$ meteor
+```
+Point your browser to localhost:3000 to use the application
